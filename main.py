@@ -93,7 +93,7 @@ def generate_keys(n_digits):
 
 # вычисляем размерность блока
 def block_size(N):
-    return max(1, int(math.log(N, 256)))
+    return max(1, int(math.log(N, 256))) #смотрим сколько байт влезает в один блок
 
 # переводим текст в блоки
 def text_to_blocks(text, N):
