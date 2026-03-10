@@ -21,7 +21,7 @@ def generate_prime(digits):
         if is_prime(num):
             return num
         
-#расширенный алгоритм евклида для вычисления закрытого ключа e
+# расширенный алгоритм евклида для вычисления закрытого ключа e
 # a - d
 # b - s (открытый ключ)
 # алгоритм взят из статьи на хабре
@@ -99,7 +99,7 @@ def text_to_blocks(text, N):
     for i in range(0, len(data), size):
         chunk = data[i:i+size] #берём срез данного размера
         blocks.append(int.from_bytes(chunk, "big")) #преобразование байт в число
-
+    print(blocks)
     return blocks
 
 
@@ -120,10 +120,10 @@ def encrypt(blocks, public_key):
         # Шифруем каждый блок по формуле C = M**s mod N
         encrypted_block = pow(block, public_key[0], public_key[1]) # что, в какую степень, остаток от деления на
         encrypted_blocks.append(encrypted_block)
-
+    print(encrypted_blocks)
     return encrypted_blocks
 
-# расшифровка 
+# расшифровка
 def decrypt(blocks, private_key):
     decrypted_blocks = []  # здесь хранятся расшифрованные блоки
 
@@ -131,7 +131,7 @@ def decrypt(blocks, private_key):
         # Расшифровываем блоки по формуле M = C**e mod N
         decrypted_block = pow(block, private_key[0], private_key[1]) # что, в какую степень, остаток от деления на
         decrypted_blocks.append(decrypted_block)
-
+    print(decrypted_blocks)
     return decrypted_blocks
 
 # С богом рабочий графический интерфейс
@@ -171,7 +171,7 @@ class RSAApp:
         # Кнопки
         tk.Button(root, text="Сгенерировать ключи", command=self.generate_keys).grid(row=9, column=0, pady=10)
         tk.Button(root, text="Закодировать текст", command=self.encode_text).grid(row=9, column=1, pady=10)
-        tk.Button(root, text="Декодировать текст", command=self.decode_text).grid(row=9, column=2, pady=10)
+        tk.Button(root, text="Расшифровать текст", command=self.decode_text).grid(row=9, column=2, pady=10)
         tk.Button(root, text="Сбросить поля", command=self.clear_fields).grid(row=9, column=3, pady=10)
 
     def generate_keys(self):
