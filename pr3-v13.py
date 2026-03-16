@@ -316,7 +316,7 @@ class App:
         current_keys=[]
         clean_text=""
         original_text=""
-
-root=tk.Tk()
-app=App(root)
-root.mainloop()
+if __name__ == "__main__":
+    root=tk.Tk()
+    app=App(root)
+    root.mainloop()
