@@ -34,7 +34,7 @@ def find_distances(text,n):
         if len(v)>1:
             for i in range(len(v)-1):
                 res.append(v[i+1]-v[i])
-
+    print(res)
     return res
 
 # Индекс совпадений
@@ -55,7 +55,7 @@ def calculate_ic(text):
     s=0
     for x in f:
         s+=x*(x-1)
-
+    print(s/(n*(n-1)))
     return s/(n*(n-1))
 
 
@@ -72,7 +72,7 @@ def calculate_average_ic(text,key_len):
 
         if len(col)>1:
             total+=calculate_ic(col)
-
+    print (total/key_len)
     return total/key_len
 
 # Поиск длины ключа 
@@ -161,6 +161,7 @@ def get_top_shifts(col,n):
     for i in range(min(n,len(scores))):
         res.append(ALPHABET[scores[i][0]])
 
+    print(res)
     return res
 
 # Расшифровка Виженера
@@ -201,7 +202,7 @@ def decrypt_preserve(original,key):
     return "".join(res)
 
 
-# ---------------- GUI ----------------
+# Интерфейс (чат гпт зарешал)
 
 class App:
 
@@ -316,6 +317,7 @@ class App:
         current_keys=[]
         clean_text=""
         original_text=""
+        
 if __name__ == "__main__":
     root=tk.Tk()
     app=App(root)
